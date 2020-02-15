@@ -28,9 +28,9 @@ steps:
 - name: release
   image: plugins/github-releae
   settings:
-      api_key:
-          from_secret: github_token
-      files: hello
+    api_key:
+      from_secret: github_token
+    files: hello
   when:
-      event: tag
+    event: tag
 
