@@ -26,11 +26,10 @@ steps:
       from_secret: password
 
 - name: release
-  image: plugins/github-releae
+  image: plugins/github-release
   settings:
     api_key:
       from_secret: github_token
     files: hello
   when:
     event: tag
-
