@@ -16,7 +16,7 @@ steps:
     - go build
 
 - name: release
-  image: plugins/github-releae
+  image: plugins/github-release
   settings:
     api_key:
       from_secret: github_token
