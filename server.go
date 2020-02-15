@@ -1,13 +1,16 @@
 package main
 
 import (
-	api "hello/api"
-
-	"github.com/labstack/echo"
+	"hello/api"
+	"log"
+	"net/http"
 )
 
+func hello() string {
+    return "hello"
+}
+
 func main() {
-	e := echo.New()
-	e.GET("/", api.HelloWorld)
-	e.Logger.Fatal(e.Start(":8080"))
+	http.HandleFunc("/", api.HelloWorld)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

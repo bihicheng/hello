@@ -6,7 +6,12 @@ import (
 	"github.com/labstack/echo"
 )
 
-//HelloWorld ...
-func HelloWorld(c echo.Context) error {
+// Hello ...
+func Hello(c echo.Context) error {
 	return c.JSON(http.StatusOK, "hello world")
+}
+
+// HelloWorld ...
+func HelloWorld(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("hello world"))
 }
