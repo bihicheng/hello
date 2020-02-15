@@ -14,3 +14,13 @@ steps:
   commands:
     - go test ./../
     - go build
+
+- name: publish
+  image: plugins/docker
+  settings:
+    repo: hello
+    tags: latest
+    username:
+      from_secret: username
+    password:
+      from_secret: password    
