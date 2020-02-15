@@ -15,6 +15,15 @@ steps:
     - go test ./...
     - go build
 
+- name: release
+  image: plugins/github-releae
+  settings:
+    api_key:
+      from_secret: github_token
+    files: hello
+  when:
+    event: tag
+
 - name: publish
   image: plugins/docker
   settings:
@@ -25,12 +34,4 @@ steps:
     password:
       from_secret: password
 
-- name: release
-  image: plugins/github-releae
-  settings:
-    api_key:
-      from_secret: github_token
-    files: hello
-  when:
-    event: tag
 
