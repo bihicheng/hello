@@ -6,6 +6,9 @@ platform:
   os: linux
   arch: amd64
 
+workspace:
+  path: /usr/local/app
+
 steps:
 - name: build
   image: golang:1.13.7
