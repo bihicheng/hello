@@ -15,6 +15,14 @@ steps:
   commands:
   - go test ./...
   - go build
+- name: notify
+  image: plugins/slack
+  settings:
+    webhook: https://hooks.slack.com/services/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
+  when:
+    status:
+    - failure
+    - success
 
 trigger:
   branch:
