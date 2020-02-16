@@ -1,35 +1,14 @@
 kind: pipeline
 type: docker
-name: build
-
-platform:
-    os: linux
-    arch: amd64
+name: default
 
 steps:
 - name: build
   image: golang:1.13.7
-  environment:
-    CGO_ENABLED: "0"
   commands:
-    - go test ./...
-    - go build
+  - go test ./...
+  - go build
 
-- name: publish
-  image: plugins/docker
-  settings:
-    repo: bihicheng/hello
-    tags: latest
-    username:
-      from_secret: username
-    password:
-      from_secret: password
-
-- name: release
-  image: plugins/github-release
-  settings:
-    api_key:
-      from_secret: github_token
-    files: hello
-  when:
-    event: tag
+trigger:
+  branch:
+  - master
