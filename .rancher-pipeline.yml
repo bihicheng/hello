@@ -19,3 +19,11 @@ stages:
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
+notification:
+  recipients:
+  - recipient: website
+    notifier: c-djp4q:n-dws9j
+  condition:
+  - Success
+  - Changed
+  - Failed
