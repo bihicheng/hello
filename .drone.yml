@@ -15,15 +15,25 @@ steps:
   commands:
   - go test ./...
   - go build
-- name: notify
-  image: plugins/slack
+
+- name: publish
+  image: plugins/docker
   settings:
-    webhook: https://hooks.slack.com/services/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
-    channel: website
+    repo: bihicheng/hello
+    tags: latest
+    username:
+      from_secret: username
+    password:
+      from_secret: password
+
+- name: release
+  image: plugins/github-release
+  settings:
+    api_key:
+      from_secret: github_token
+    files: hello
   when:
-    status:
-    - failure
-    - success
+    event: tag
 
 deploy:
   rancher:
