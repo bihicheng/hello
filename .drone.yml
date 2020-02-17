@@ -20,7 +20,8 @@ steps:
   image: plugins/docker
   settings:
     repo: bihicheng/hello
-    tags: latest
+    auto_tag: true
+    auto_tag_suffix: linux-amd64
     username:
       from_secret: username
     password:
