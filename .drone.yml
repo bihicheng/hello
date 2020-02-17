@@ -18,12 +18,23 @@ steps:
 - name: notify
   image: plugins/slack
   settings:
-    webhook: https://hooks.slack.com/services/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 
+    https://hooks.slack.com/services/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
     channel: website
   when:
     status:
     - failure
     - success
+
+deploy:
+  rancher:
+    image: pelotech/drone-rancher
+    url: https://ec2-54-188-42-26.us-west-2.compute.amazonaws.com/v3
+    access_key: token-kfk26
+    secret_key: 7wvrzz4rrcz9lpgmlkxggw96w6vdj59g96tf2d4pq8v65fnd85hdrq
+    service: bihicheng/hello
+    sidekick: nginx nginx:latest
+    sidekick: node node:latest
+    docker_image: bihicheng/hello:latest
 
 trigger:
   branch:
