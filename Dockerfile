@@ -1,4 +1,4 @@
-FROM golang:1.13.7
+FROM alpine
 EXPOSE 8080
 ADD hello /bin
 ENTRYPOINT [ "/bin/hello" ]
