@@ -1,4 +1,4 @@
 FROM alpine
 EXPOSE 8080
-ADD hello /bin
+COPY hello /bin
 ENTRYPOINT [ "/bin/hello" ]
