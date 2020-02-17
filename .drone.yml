@@ -18,7 +18,7 @@ steps:
 - name: notify
   image: plugins/slack
   settings:
-    https://hooks.slack.com/services/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
+    webhook: https://hooks.slack.com/services/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
     channel: website
   when:
     status:
