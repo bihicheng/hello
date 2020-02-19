@@ -6,6 +6,10 @@ import (
 	"github.com/labstack/echo"
 )
 
+var (
+    webcontent = "Hello Everyone!"
+)
+
 // Hello ...
 func Hello(c echo.Context) error {
 	return c.JSON(http.StatusOK, "hello world")
@@ -13,5 +17,5 @@ func Hello(c echo.Context) error {
 
 // HelloWorld ...
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello everyone!"))
+	w.Write([]byte(webcontent))
 }
