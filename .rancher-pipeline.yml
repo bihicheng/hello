@@ -21,7 +21,7 @@ stages:
       path: ./deployment.yaml
 notification:
   recipients:
-  - recipient: website
+  - recipient: '#website'
     notifier: c-djp4q:n-dws9j
   condition:
   - Success
