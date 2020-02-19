@@ -36,20 +36,10 @@ steps:
   when:
     event: tag
 
-deploy:
-  rancher:
-    image: pelotech/drone-rancher
-    url: https://ec2-54-188-42-26.us-west-2.compute.amazonaws.com/v3
-    access_key: token-kfk26
-    secret_key: 7wvrzz4rrcz9lpgmlkxggw96w6vdj59g96tf2d4pq8v65fnd85hdrq
-    service: bihicheng/hello
-    sidekick: nginx nginx:latest
-    sidekick: node node:latest
-    docker_image: bihicheng/hello:latest
-
 trigger:
   branch:
   - master
+  - dev
   event:
   - push
   - pull_request
