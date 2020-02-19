@@ -13,5 +13,5 @@ func Hello(c echo.Context) error {
 
 // HelloWorld ...
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello World!"))
+	w.Write([]byte("Hello everyone!"))
 }
