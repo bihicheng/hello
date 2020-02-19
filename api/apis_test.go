@@ -17,7 +17,7 @@ func TestHelloHandler(t *testing.T) {
 			status, http.StatusOK)
 	}
 
-	if b := w.Body.String(); b != "Hello World!" {
+	if b := w.Body.String(); b != webcontent {
 		t.Fatalf("body = %s, want no", b)
 	}
 
